@@ -80,20 +80,25 @@ function setEnvDoubleSlit() {
         var slitWidth = 10;
         var slitDistance = 40;
 
+        var slitWidthDiv2 = Math.floor(slitWidth/2);
+        var slitDistanceDiv2 = Math.floor(slitDistance/2);
+        var gridSizeXDiv2 = Math.floor(gridSizeX/2);
+        var gridSizeYDiv2 = Math.floor(gridSizeY/2);
+
         for (let i = 0; i < gridSizeX; i++) {
             for (let j = 0; j < gridSizeY; j++) {
                 eps[j][i] = 1.0;
             }
         }
 
-        for (let i = gridSizeX/2 - 2; i < gridSizeX/2 + 2; i++) {
-            for (let j = 0; j < gridSizeY/2 - slitDistance/2 - slitWidth/2; j++) {
+        for (let i = gridSizeXDiv2 - 2; i < gridSizeXDiv2 + 2; i++) {
+            for (let j = 0; j < gridSizeYDiv2 - slitDistanceDiv2 - slitWidthDiv2; j++) {
                 eps[j][i] = 1100.0;
             }
-            for (let j = gridSizeY/2 - slitDistance/2 + slitWidth/2; j < gridSizeY/2 + slitDistance/2 - slitWidth/2; j++) {
+            for (let j = gridSizeYDiv2 - slitDistanceDiv2 + slitWidthDiv2; j < gridSizeYDiv2 + slitDistanceDiv2 - slitWidthDiv2; j++) {
                 eps[j][i] = 1100.0;
             }
-            for (let j = gridSizeY/2 + slitDistance/2 + slitWidth/2; j < gridSizeY; j++) {
+            for (let j = gridSizeYDiv2 + slitDistanceDiv2 + slitWidthDiv2; j < gridSizeY; j++) {
                 eps[j][i] = 1100.0;
             }
 
